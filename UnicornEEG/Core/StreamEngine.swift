@@ -25,6 +25,8 @@ class StreamEngine: ObservableObject {
 
     @Published var isConnected = false
     @Published var isStreaming = false
+    @Published var isResettingBluetooth = false
+    @Published var bluetoothStatusMessage: String?
     @Published var batteryLevel: Float = 0
     @Published var sampleCount: UInt64 = 0
     @Published var errorMessage: String?
@@ -68,6 +70,64 @@ class StreamEngine: ObservableObject {
             output.stop()
         }
         outputs.removeAll()
+    }
+
+    // MARK: - Bluetooth Reset + Stream
+
+    /// Reset the Bluetooth connection (unpair/re-pair if needed), then start streaming.
+    func connectAndStream() {
+        guard !isStreaming && !isResettingBluetooth else { return }
+
+        DispatchQueue.main.async {
+            self.isResettingBluetooth = true
+            self.bluetoothStatusMessage = "Resetting Bluetooth connection..."
+            self.errorMessage = nil
+        }
+
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+
+            guard let addr = BluetoothManager.unicornAddress() else {
+                DispatchQueue.main.async {
+                    self.isResettingBluetooth = false
+                    self.bluetoothStatusMessage = nil
+                    self.errorMessage = "No Unicorn device found in Bluetooth settings. Pair it once first."
+                }
+                return
+            }
+
+            print("[BT] Found Unicorn at \(addr), starting unpair/re-pair cycle")
+
+            DispatchQueue.main.async {
+                self.bluetoothStatusMessage = "Unpairing and re-pairing Bluetooth..."
+            }
+
+            let success = BluetoothManager.unpairAndRepair()
+
+            guard success else {
+                DispatchQueue.main.async {
+                    self.isResettingBluetooth = false
+                    self.bluetoothStatusMessage = nil
+                    self.errorMessage = "Bluetooth reset failed. Is the Unicorn powered on?"
+                }
+                return
+            }
+
+            guard let portName = BluetoothManager.findUnicornPortName() else {
+                DispatchQueue.main.async {
+                    self.isResettingBluetooth = false
+                    self.bluetoothStatusMessage = nil
+                    self.errorMessage = "Bluetooth connected but serial port did not appear."
+                }
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.isResettingBluetooth = false
+                self.bluetoothStatusMessage = nil
+                self.startStreaming(portName: portName)
+            }
+        }
     }
 
     // MARK: - Streaming

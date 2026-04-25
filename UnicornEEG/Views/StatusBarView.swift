@@ -51,12 +51,14 @@ struct StatusBarView: View {
 
     private var statusColor: Color {
         if engine.isStreaming { return .green }
+        if engine.isResettingBluetooth { return .yellow }
         if engine.isConnected { return .orange }
         return .red
     }
 
     private var statusText: String {
         if engine.isStreaming { return "Streaming" }
+        if engine.isResettingBluetooth { return "Resetting Bluetooth..." }
         if engine.isConnected { return "Connected" }
         return "Disconnected"
     }

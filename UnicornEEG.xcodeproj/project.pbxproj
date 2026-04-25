@@ -27,6 +27,7 @@
 		CEAE4B7194457DA983EF4656 /* StreamEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF825DED564941565FE724B /* StreamEngine.swift */; };
 		D79536C42A2B7E80A0E05002 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF86FC683DD21A313EDF0E5 /* RingBuffer.swift */; };
 		DCABCE5CFECE899E61DF1959 /* BandPowerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E2238895C197E5637CEDD /* BandPowerBarView.swift */; };
+		EA9CC9999227C7524B26524E /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BDB7D9197FED499755638A /* BluetoothManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		2589B027E200970145150776 /* BandPowerLSLOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPowerLSLOutput.swift; sourceTree = "<group>"; };
 		2AF86FC683DD21A313EDF0E5 /* RingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		31AF872655915A739D8BB9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		32BDB7D9197FED499755638A /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		3FF825DED564941565FE724B /* StreamEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamEngine.swift; sourceTree = "<group>"; };
 		47615AA2B32780BF1D8A3BEC /* OutputConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputConfigView.swift; sourceTree = "<group>"; };
 		4A35083470FBC92B9153CBDE /* BandPowerProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPowerProcessor.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				56DD2002371FB6BA3F3C9134 /* AudioOutput.swift */,
 				2589B027E200970145150776 /* BandPowerLSLOutput.swift */,
 				4A35083470FBC92B9153CBDE /* BandPowerProcessor.swift */,
+				32BDB7D9197FED499755638A /* BluetoothManager.swift */,
 				6A26B632517FD72D3BEA9BA2 /* LSLOutput.swift */,
 				73CB5466F27202E812E9608C /* OutputProtocol.swift */,
 				5093A9521AE84ED20BAEB2CC /* PacketParser.swift */,
@@ -188,6 +191,7 @@
 				DCABCE5CFECE899E61DF1959 /* BandPowerBarView.swift in Sources */,
 				79255A3140191D915ADA636A /* BandPowerLSLOutput.swift in Sources */,
 				04D72EB81F7FC87A77B97D7F /* BandPowerProcessor.swift in Sources */,
+				EA9CC9999227C7524B26524E /* BluetoothManager.swift in Sources */,
 				97639D923404AF728A8EE66D /* ConnectionView.swift in Sources */,
 				43A5D5DA28DFBE9977A4715E /* ContentView.swift in Sources */,
 				AD40322A820FD19533EE7A5C /* HeadMapView.swift in Sources */,

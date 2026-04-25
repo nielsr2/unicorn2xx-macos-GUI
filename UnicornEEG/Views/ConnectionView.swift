@@ -13,40 +13,55 @@ struct ConnectionView: View {
     @State private var selectedPortName: String = ""
 
     var body: some View {
-        HStack(spacing: 12) {
-            // Port picker
-            Picker("Port:", selection: $selectedPortName) {
-                if ports.isEmpty {
-                    Text("No ports found").tag("")
+        VStack(spacing: 8) {
+            HStack(spacing: 12) {
+                // Port picker
+                Picker("Port:", selection: $selectedPortName) {
+                    if ports.isEmpty {
+                        Text("No ports found").tag("")
+                    }
+                    ForEach(ports, id: \.name) { port in
+                        Text("\(port.name) — \(port.description)")
+                            .tag(port.name)
+                    }
                 }
-                ForEach(ports, id: \.name) { port in
-                    Text("\(port.name) — \(port.description)")
-                        .tag(port.name)
+                .frame(minWidth: 300)
+                .disabled(engine.isStreaming || engine.isResettingBluetooth)
+
+                Button(action: refreshPorts) {
+                    Image(systemName: "arrow.clockwise")
+                }
+                .disabled(engine.isStreaming || engine.isResettingBluetooth)
+                .help("Refresh port list")
+
+                Spacer()
+
+                // Start / Stop streaming
+                if engine.isStreaming {
+                    Button("Stop") {
+                        engine.stopStreaming()
+                    }
+                    .tint(.orange)
+                } else if engine.isResettingBluetooth {
+                    Button("Connecting...") {}
+                        .disabled(true)
+                } else {
+                    Button("Start") {
+                        engine.connectAndStream()
+                    }
                 }
             }
-            .frame(minWidth: 300)
-            .disabled(engine.isStreaming)
 
-            Button(action: refreshPorts) {
-                Image(systemName: "arrow.clockwise")
-            }
-            .disabled(engine.isStreaming)
-            .help("Refresh port list")
-
-            Spacer()
-
-            // Start / Stop streaming
-            if engine.isStreaming {
-                Button("Stop") {
-                    engine.stopStreaming()
+            // Bluetooth reset progress
+            if engine.isResettingBluetooth, let message = engine.bluetoothStatusMessage {
+                HStack(spacing: 8) {
+                    ProgressView()
+                        .controlSize(.small)
+                    Text(message)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
-                .tint(.orange)
-            } else {
-                Button("Start") {
-                    guard !selectedPortName.isEmpty else { return }
-                    engine.startStreaming(portName: selectedPortName)
-                }
-                .disabled(selectedPortName.isEmpty)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .onAppear {
