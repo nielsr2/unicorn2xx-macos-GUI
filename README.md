@@ -3,7 +3,7 @@
 A native macOS application for the [Unicorn Hybrid Black](https://www.unicorn-bi.com/) 8-channel EEG system. Open source, lightweight, and built for real-time streaming to [LabStreamingLayer (LSL)](https://labstreaminglayer.readthedocs.io) — no official macOS GUI required.
 
 <!-- TODO: Add screenshot of the main window with waveforms and band power panel -->
-![App Screenshot](docs/screenshot.png)
+![App Screenshot](UNICORN MACOS.png)
 
 ## Why this app?
 
@@ -77,23 +77,7 @@ Then build with **Cmd+B** in Xcode and run.
 - **blueutil not found:** Install it with `brew install blueutil`. The app expects it at `/usr/local/bin/blueutil`.
 - **No serial port appears:** Grant the app Bluetooth permission when prompted. Check System Settings > Privacy & Security > Bluetooth.
 
-## CLI tools
-
-This repository also includes command-line tools that work on macOS, Linux, and Windows:
-
-- **unicorn2txt** — streams EEG data to the screen or a tab-separated text file
-- **unicorn2lsl** — streams EEG data to LabStreamingLayer
-- **unicorn2audio** — resamples EEG to audio sample rate and streams to a virtual or real audio device (e.g., [BlackHole](https://github.com/ExistentialAudio/BlackHole), [VB-Audio Cable](https://vb-audio.com/Cable/index.htm))
-
-Build the CLI tools with CMake:
-
-```bash
-mkdir build && cd build
-cmake ..
-cmake --build .
-```
-
-## External dependencies
+## Dependencies
 
 | Library | Purpose | Install |
 |---------|---------|---------|
@@ -102,6 +86,10 @@ cmake --build .
 | [PortAudio](http://www.portaudio.com) | Audio output | `brew install portaudio` |
 | [libsamplerate](http://libsndfile.github.io/libsamplerate) | Audio resampling | `brew install libsamplerate` |
 | [blueutil](https://github.com/toy/blueutil) | Bluetooth CLI control | `brew install blueutil` |
+
+## Acknowledgments
+
+Built on [unicorn2xx](https://github.com/robertoostenveld/unicorn2xx) by Robert Oostenveld. If you need cross-platform CLI tools (unicorn2txt, unicorn2lsl, unicorn2audio), see the original repository.
 
 ## Alternatives
 
