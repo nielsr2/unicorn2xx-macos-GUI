@@ -24,6 +24,7 @@
 		A8C27A807C67655052479AD8 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9275F604922D26D4D36CC7C /* StatusBarView.swift */; };
 		A98397FA6966EF138499E33D /* TextFileOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA39B777D7A9E57E38141752 /* TextFileOutput.swift */; };
 		AD40322A820FD19533EE7A5C /* HeadMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E15A99BF548622F67DAB3 /* HeadMapView.swift */; };
+		C7057604EBCCCA8B02AD6098 /* blueutil in Resources */ = {isa = PBXBuildFile; fileRef = 5CD9B2603082CA2267E6EF1E /* blueutil */; };
 		CEAE4B7194457DA983EF4656 /* StreamEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF825DED564941565FE724B /* StreamEngine.swift */; };
 		D79536C42A2B7E80A0E05002 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF86FC683DD21A313EDF0E5 /* RingBuffer.swift */; };
 		DCABCE5CFECE899E61DF1959 /* BandPowerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E2238895C197E5637CEDD /* BandPowerBarView.swift */; };
@@ -44,6 +45,7 @@
 		531DF2F83BD187CAF9F63567 /* UnicornEEGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicornEEGApp.swift; sourceTree = "<group>"; };
 		56DD2002371FB6BA3F3C9134 /* AudioOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOutput.swift; sourceTree = "<group>"; };
 		5AA5C9C4F100EA4279ADC515 /* UnicornEEG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnicornEEG-Bridging-Header.h"; sourceTree = "<group>"; };
+		5CD9B2603082CA2267E6EF1E /* blueutil */ = {isa = PBXFileReference; path = blueutil; sourceTree = "<group>"; };
 		6A26B632517FD72D3BEA9BA2 /* LSLOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLOutput.swift; sourceTree = "<group>"; };
 		73CB5466F27202E812E9608C /* OutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputProtocol.swift; sourceTree = "<group>"; };
 		751E2238895C197E5637CEDD /* BandPowerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPowerBarView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		46980E29F5AAE1BFD831CF53 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5CD9B2603082CA2267E6EF1E /* blueutil */,
+			);
+			name = Resources;
+			path = UnicornEEG/Resources;
+			sourceTree = "<group>";
+		};
 		4B42C646B5F1B6B6AAEF3BB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +126,7 @@
 		F32859A3247AD767D3134EF1 = {
 			isa = PBXGroup;
 			children = (
+				46980E29F5AAE1BFD831CF53 /* Resources */,
 				5E8E2B75ABDE2732A2FAEBDE /* UnicornEEG */,
 				AB516049567B81372635F8AD /* Products */,
 			);
@@ -178,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A510323141D304F6014DB2 /* Assets.xcassets in Resources */,
+				C7057604EBCCCA8B02AD6098 /* blueutil in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

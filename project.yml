@@ -13,8 +13,8 @@ targets:
         excludes:
           - "*.entitlements"
           - "Resources/blueutil"
-    resources:
       - path: UnicornEEG/Resources/blueutil
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.unicorn.eeg
