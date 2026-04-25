@@ -1,0 +1,52 @@
+name: UnicornEEG
+options:
+  deploymentTarget:
+    macOS: "15.0"
+  xcodeVersion: "15.0"
+
+targets:
+  UnicornEEG:
+    type: application
+    platform: macOS
+    sources:
+      - path: UnicornEEG
+        excludes:
+          - "*.entitlements"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.unicorn.eeg
+        SWIFT_OBJC_BRIDGING_HEADER: UnicornEEG/UnicornEEG-Bridging-Header.h
+        INFOPLIST_FILE: UnicornEEG/Info.plist
+        CODE_SIGN_ENTITLEMENTS: UnicornEEG/UnicornEEG.entitlements
+        HEADER_SEARCH_PATHS:
+          - /usr/local/include
+          - /Library/Frameworks/lsl.framework/Versions/A/include
+        LIBRARY_SEARCH_PATHS:
+          - /usr/local/lib
+        FRAMEWORK_SEARCH_PATHS:
+          - /Library/Frameworks
+        LD_RUNPATH_SEARCH_PATHS:
+          - "@executable_path/../Frameworks"
+          - /Library/Frameworks
+        OTHER_LDFLAGS:
+          - -lserialport
+          - -framework
+          - lsl
+          - -lportaudio
+          - -lsamplerate
+          - -lc++
+        MACOSX_DEPLOYMENT_TARGET: "15.0"
+        SWIFT_VERSION: "5.9"
+    dependencies: []
+    postBuildScripts: []
+    info:
+      path: UnicornEEG/Info.plist
+    entitlements:
+      path: UnicornEEG/UnicornEEG.entitlements
+    frameworks:
+      - sdk: CoreServices.framework
+      - sdk: CoreFoundation.framework
+      - sdk: AudioUnit.framework
+      - sdk: AudioToolbox.framework
+      - sdk: CoreAudio.framework
+      - sdk: IOKit.framework

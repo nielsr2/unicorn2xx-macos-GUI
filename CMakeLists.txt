@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(/usr/local/include)
 include_directories(external/lsl/include external/portaudio/include external/samplerate/include external/serialport/include)
+include_directories(/Library/Frameworks/lsl.framework/Versions/A/include)
 
 if (UNIX)
 endif()
@@ -35,7 +36,7 @@ endif()
 find_library(SERIALPORT NAMES libserialport.a libserialport.lib PATHS external/serialport/lib /usr/local/lib)
 find_library(PORTAUDIO NAMES libportaudio.a portaudio.lib portaudio_static_x64.lib portaudio_x64.lib PATHS external/portaudio/lib /usr/local/lib)
 find_library(RESAMPLE NAMES libsamplerate.a samplerate.lib PATHS external/samplerate/lib /usr/local/lib)
-find_library(LSL NAMES liblsl.a lsl.lib PATHS external/lsl/lib /usr/local/lib)
+find_library(LSL NAMES liblsl.a lsl.lib lsl PATHS external/lsl/lib /usr/local/lib /Library/Frameworks)
 
 target_link_libraries(unicorn2txt   ${SERIALPORT})
 target_link_libraries(unicorn2lsl   ${SERIALPORT} ${LSL})
