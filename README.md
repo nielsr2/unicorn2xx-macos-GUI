@@ -21,7 +21,6 @@ The official Unicorn software is Windows-only. This project gives macOS users a 
 - **Multiple output sinks:**
   - **LSL** — raw EEG stream + optional band power stream
   - **Text file** — tab-separated values for offline analysis
-  - **Audio** — resampled EEG output to any audio device (real or virtual)
 
 <!-- TODO: Add screenshot of the band power panel and head map -->
 
@@ -36,7 +35,7 @@ The official Unicorn software is Windows-only. This project gives macOS users a 
 Install dependencies via Homebrew:
 
 ```bash
-brew install libserialport portaudio libsamplerate xcodegen
+brew install libserialport xcodegen
 ```
 
 Install [liblsl](https://github.com/sccn/liblsl/releases) manually — download the latest release and copy the files:
@@ -68,7 +67,7 @@ Then build with **Cmd+B** in Xcode and run.
 1. Power on the Unicorn headset (LED gives short flashes while waiting)
 2. Make sure the device has been paired with your Mac at least once via System Settings > Bluetooth
 3. Click **Start** — the app automatically resets the Bluetooth connection and begins streaming
-4. Configure outputs (LSL, file, audio) in the bottom panel
+4. Configure outputs (LSL, text file) in the bottom panel
 5. Toggle the **Bands** checkbox to show/hide the frequency band power panel
 
 <!-- TODO: Add screenshot of the output configuration panel -->
@@ -85,8 +84,6 @@ Then build with **Cmd+B** in Xcode and run.
 |---------|---------|---------|
 | [libserialport](https://sigrok.org/wiki/Libserialport) | Serial port communication | `brew install libserialport` |
 | [liblsl](https://labstreaminglayer.readthedocs.io) | LabStreamingLayer streaming | [Manual install](https://github.com/sccn/liblsl/releases) |
-| [PortAudio](http://www.portaudio.com) | Audio output | `brew install portaudio` |
-| [libsamplerate](http://libsndfile.github.io/libsamplerate) | Audio resampling | `brew install libsamplerate` |
 | [blueutil](https://github.com/toy/blueutil) | Bluetooth CLI control | Bundled in .app |
 
 ## Acknowledgments

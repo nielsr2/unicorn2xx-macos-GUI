@@ -10,7 +10,5 @@
 
 #include "libserialport.h"
 #include "lsl_c.h"
-#include "portaudio.h"
-#include "samplerate.h"
 
 #endif /* UnicornEEG_Bridging_Header_h */

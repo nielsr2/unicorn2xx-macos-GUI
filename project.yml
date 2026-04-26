@@ -35,8 +35,6 @@ targets:
           - -lserialport
           - -framework
           - lsl
-          - -lportaudio
-          - -lsamplerate
           - -lc++
         MACOSX_DEPLOYMENT_TARGET: "15.0"
         SWIFT_VERSION: "5.9"
@@ -53,8 +51,5 @@ targets:
     frameworks:
       - sdk: CoreServices.framework
       - sdk: CoreFoundation.framework
-      - sdk: AudioUnit.framework
-      - sdk: AudioToolbox.framework
-      - sdk: CoreAudio.framework
       - sdk: IOKit.framework
       - sdk: IOBluetooth.framework

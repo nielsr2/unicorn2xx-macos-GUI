@@ -2,8 +2,8 @@
  * OutputConfigView.swift
  * UnicornEEG
  *
- * Toggle switches and settings for the three output modes:
- * text file, LSL stream, and audio output.
+ * Toggle switches and settings for output modes:
+ * text file and LSL stream.
  */
 
 import SwiftUI
@@ -18,16 +18,6 @@ struct OutputConfigView: View {
     // LSL output
     @State private var lslEnabled = false
     @State private var lslStreamName = "Unicorn"
-
-    // Audio output
-    @State private var audioEnabled = false
-    @State private var audioDevices: [AudioDeviceInfo] = []
-    @State private var selectedAudioDevice: Int = -1
-    @State private var audioSampleRate: Float = 44100
-    @State private var audioBufferSize: Float = 2.0
-    @State private var audioBlockSize: Float = 0.01
-    @State private var audioHPFilter: Float = 10.0
-    @State private var audioAutoScale = true
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -73,42 +63,6 @@ struct OutputConfigView: View {
                     Toggle("LSL Band Power", isOn: $engine.bandPowerLSLEnabled)
                 }
                 .frame(minWidth: 200, alignment: .leading)
-
-                Divider().frame(height: 60)
-
-                // Audio output
-                VStack(alignment: .leading, spacing: 4) {
-                    Toggle("Audio", isOn: $audioEnabled)
-                        .onChange(of: audioEnabled) { _ in
-                            if audioEnabled {
-                                audioDevices = AudioOutput.listDevices()
-                                if selectedAudioDevice < 0,
-                                   let def = audioDevices.first(where: { $0.isDefault }) {
-                                    selectedAudioDevice = def.index
-                                }
-                            }
-                            updateOutputs()
-                        }
-                    if audioEnabled {
-                        Picker("Device:", selection: $selectedAudioDevice) {
-                            ForEach(audioDevices, id: \.index) { device in
-                                Text(device.name).tag(device.index)
-                            }
-                        }
-                        .frame(width: 200)
-
-                        HStack {
-                            Text("Rate:")
-                            TextField("Hz", value: $audioSampleRate, format: .number)
-                                .textFieldStyle(.roundedBorder)
-                                .frame(width: 70)
-                            Text("Hz")
-                        }
-
-                        Toggle("Auto scale", isOn: $audioAutoScale)
-                    }
-                }
-                .frame(minWidth: 200, alignment: .leading)
             }
         }
         .font(.system(size: 12))
@@ -124,17 +78,6 @@ struct OutputConfigView: View {
 
         if lslEnabled {
             engine.addOutput(LSLOutput(streamName: lslStreamName))
-        }
-
-        if audioEnabled {
-            var config = AudioOutputConfig()
-            config.outputDeviceIndex = selectedAudioDevice
-            config.sampleRate = audioSampleRate
-            config.bufferSize = audioBufferSize
-            config.blockSize = audioBlockSize
-            config.hpFilterTimeConstant = audioHPFilter
-            config.autoScale = audioAutoScale
-            engine.addOutput(AudioOutput(config: config))
         }
     }
 

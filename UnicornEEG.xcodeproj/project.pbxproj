@@ -15,7 +15,6 @@
 		2BC3CE05012CD84D436A1B40 /* OutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CB5466F27202E812E9608C /* OutputProtocol.swift */; };
 		3642FE6B7EFAF20707DF900E /* LSLOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A26B632517FD72D3BEA9BA2 /* LSLOutput.swift */; };
 		43A5D5DA28DFBE9977A4715E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C7D2D03B0DA0D060254BB9 /* ContentView.swift */; };
-		5D4257E83EB54C35926E2A2A /* AudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD2002371FB6BA3F3C9134 /* AudioOutput.swift */; };
 		5FC6DE0663366BD56DB40C56 /* UnicornEEGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531DF2F83BD187CAF9F63567 /* UnicornEEGApp.swift */; };
 		61A4B726DABD4F27071C3694 /* PacketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5093A9521AE84ED20BAEB2CC /* PacketParser.swift */; };
 		6A1ED1F560ADE85C525D921E /* OutputConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47615AA2B32780BF1D8A3BEC /* OutputConfigView.swift */; };
@@ -43,7 +42,6 @@
 		4A35083470FBC92B9153CBDE /* BandPowerProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPowerProcessor.swift; sourceTree = "<group>"; };
 		5093A9521AE84ED20BAEB2CC /* PacketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketParser.swift; sourceTree = "<group>"; };
 		531DF2F83BD187CAF9F63567 /* UnicornEEGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicornEEGApp.swift; sourceTree = "<group>"; };
-		56DD2002371FB6BA3F3C9134 /* AudioOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOutput.swift; sourceTree = "<group>"; };
 		5AA5C9C4F100EA4279ADC515 /* UnicornEEG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnicornEEG-Bridging-Header.h"; sourceTree = "<group>"; };
 		5CD9B2603082CA2267E6EF1E /* blueutil */ = {isa = PBXFileReference; path = blueutil; sourceTree = "<group>"; };
 		6A26B632517FD72D3BEA9BA2 /* LSLOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLOutput.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 		9BF7A87C94028A97B7B63876 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				56DD2002371FB6BA3F3C9134 /* AudioOutput.swift */,
 				2589B027E200970145150776 /* BandPowerLSLOutput.swift */,
 				4A35083470FBC92B9153CBDE /* BandPowerProcessor.swift */,
 				32BDB7D9197FED499755638A /* BluetoothManager.swift */,
@@ -222,7 +219,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D4257E83EB54C35926E2A2A /* AudioOutput.swift in Sources */,
 				DCABCE5CFECE899E61DF1959 /* BandPowerBarView.swift in Sources */,
 				79255A3140191D915ADA636A /* BandPowerLSLOutput.swift in Sources */,
 				04D72EB81F7FC87A77B97D7F /* BandPowerProcessor.swift in Sources */,
@@ -393,8 +389,6 @@
 					"-lserialport",
 					"-framework",
 					lsl,
-					"-lportaudio",
-					"-lsamplerate",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.unicorn.eeg;
@@ -430,8 +424,6 @@
 					"-lserialport",
 					"-framework",
 					lsl,
-					"-lportaudio",
-					"-lsamplerate",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.unicorn.eeg;
