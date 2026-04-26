@@ -6,6 +6,8 @@ A native macOS application for the [Unicorn Hybrid Black](https://www.unicorn-bi
 
 > Built on [unicorn2xx](https://github.com/robertoostenveld/unicorn2xx) by Robert Oostenveld. For cross-platform CLI tools (unicorn2txt, unicorn2lsl, unicorn2audio), see the original repository.
 
+> **Note:** This software has not been thoroughly tested. If you plan to use it for an experiment or anything where data quality matters, please verify the output against a known-good setup before relying on it.
+
 ## Download
 
 Grab the latest release for your Mac:
