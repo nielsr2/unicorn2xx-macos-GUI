@@ -20,7 +20,7 @@ All dependencies are bundled — no Homebrew or other installs needed.
 ## Quick start
 
 1. Unzip and move **UnicornEEG.app** to Applications
-2. Right-click the app > **Open** (to bypass Gatekeeper on first launch)
+2. Right-click the app > **Open** — macOS will block it the first time since it's unsigned. Go to **System Settings > Privacy & Security**, scroll down, and click **Open Anyway**
 3. Grant Bluetooth permission when prompted
 4. Pair the Unicorn headset once via **System Settings > Bluetooth**
 5. Power on the headset and click **Start** — the app handles the Bluetooth connection automatically
