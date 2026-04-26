@@ -35,7 +35,6 @@ All dependencies are bundled — no Homebrew or other installs needed.
 
 ## Troubleshooting
 
-- **Bluetooth won't connect:** Make sure the headset is powered on and has been paired at least once. If all else fails, run `sudo pkill bluetoothd` in a terminal to restart the macOS Bluetooth daemon.
 - **blueutil not found:** The app bundles blueutil, but if issues arise you can also `brew install blueutil` as a fallback.
 - **No serial port appears:** Check System Settings > Privacy & Security > Bluetooth and make sure UnicornEEG has permission.
 
